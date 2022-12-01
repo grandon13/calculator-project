@@ -11,11 +11,7 @@ function operate (operator, a, b) {
     return basicOperations[operator](a, b);
 }
 
-let data = new Object();
-function reset() {
-    data = {first: "", second: "", operator: ""};
-}
-reset();
+let data = {first: "", second: "", operator: ""};
 
 const screen = document.querySelector('.visor');
 function display(a) {
@@ -27,7 +23,7 @@ const btns = document.querySelectorAll('.btn');
 btns.forEach( item => item.addEventListener( 'click', () => {
 
     if (item.classList[1] === 'ac') {
-        reset();
+        data = {first: "", second: "", operator: ""}
         display(0);
     }
 

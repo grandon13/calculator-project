@@ -62,7 +62,7 @@ btns.forEach( item => item.addEventListener( 'click', () => {
             }
         }
 
-        else if (!data.first && item.id === 'substract') {
+        else if (!data.first && !data.second && item.id === 'substract') {
             data.first = '-';
             display(data.first);
             firstZero = false;
@@ -74,6 +74,7 @@ btns.forEach( item => item.addEventListener( 'click', () => {
         }
 
         else if (data.second && item.classList[1] === 'op') {
+            console.log('you in?');
             data.first = data.second;
             data.second = "";
             data.operator = item.id;

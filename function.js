@@ -8,7 +8,17 @@ const basicOperations = {
 function operate (operator, a, b) {
     a = Number(a);
     b = Number(b);
-    return basicOperations[operator](a, b);
+    
+    let total = basicOperations[operator](a, b);
+    let magnitude = Math.floor(Math.log10(total));
+    let decimals = 9 - magnitude;
+
+    if (magnitude > 9) {
+        return NaN;
+    }
+
+    total = Math.round( total * (10 ** decimals)) / 10 ** decimals;
+    return total;
 }
 
 let data = {first: "", second: "", operator: ""};
@@ -33,7 +43,7 @@ btns.forEach( item => item.addEventListener( 'click', () => {
             display(data.first);
         }
 
-        if (item.classList[1] === 'pad') {
+        if (item.classList[1] === 'pad' && data.first.length < 10) {
             data.second = "";
             data.first += item.id;
             display(data.first);
@@ -56,7 +66,7 @@ btns.forEach( item => item.addEventListener( 'click', () => {
             display(data.second);
         }
 
-        if (item.classList[1] === 'pad') {
+        if (item.classList[1] === 'pad' && data.second.length < 10) {
             data.second += item.id;
             display(data.second);
         }

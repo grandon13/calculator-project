@@ -54,16 +54,12 @@ body {
     width: 123.5px;
     font-size: 40px;
     border-radius: 5%;
+    background-color: rgb(32, 152, 250);
 }
 
 .btn.equal {
     flex: 1;
     background-color: rgb(219, 219, 123);
-}
-
-.pad,
-.dot {
-    background-color: rgb(32, 152, 250);
 }
 
 .op {

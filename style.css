@@ -8,6 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100%;
+    background-color: rgba(4, 36, 4, 0.712);
 }
 
 .calculator-container {
@@ -54,12 +55,13 @@ body {
     border-radius: 5%;
 }
 
-.btn.special {
+.btn.equal {
     flex: 1;
     background-color: rgb(219, 219, 123);
 }
 
-.pad {
+.pad,
+.dot {
     background-color: rgb(32, 152, 250);
 }
 

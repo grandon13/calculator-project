@@ -13,16 +13,59 @@ function operate (operator, a, b) {
 
 let data = new Object();
 function reset() {
-    data = {first: "", second: "", operator: "", screen: 0};
+    data = {first: "", second: "", operator: ""};
 }
 reset();
 
 const screen = document.querySelector('.visor');
-function display() {
-    screen.textContent = data.screen;
+function display(a) {
+    a = Number(a);
+    screen.textContent = a;
 }
 
 const btns = document.querySelectorAll('.btn');    
 btns.forEach( item => item.addEventListener( 'click', () => {
-        
+
+    if (item.classList[1] === 'ac') {
+        reset();
+        display(0);
+    }
+
+    if (!data.operator) {
+        if (item.classList[1] === 'pad') {
+            data.first += item.id;
+            display(data.first);
+        }
+
+        else if (data.first && item.classList[1] === 'op') {
+            data.operator = item.id;
+        }
+
+        else if (data.second && item.classList[1] === 'op') {
+            data.first = data.second;
+            data.second = "";
+            data.operator = item.id;
+        }
+    }
+
+    else {
+        if (item.classList[1] === 'pad') {
+            data.second += item.id;
+            display(data.second);
+        }
+
+        else if (data.second && item.classList[1] === 'op') {
+            data.first = operate(data.operator, data.first, data.second);
+            display(data.first);
+            data.second = "";
+            data.operator = item.id;
+        }
+
+        else if (data.second && item.classList[1] === 'equal') {
+            data.second = operate(data.operator, data.first, data.second);
+            display(data.second);
+            data.first = "";
+            data.operator = "";
+        }        
+    }
 }));

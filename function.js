@@ -28,7 +28,13 @@ btns.forEach( item => item.addEventListener( 'click', () => {
     }
 
     if (!data.operator) {
+        if (item.classList[1] === 'del') {
+            data.first = data.first.slice(0, data.first.length -1);
+            display(data.first);
+        }
+
         if (item.classList[1] === 'pad') {
+            data.second = "";
             data.first += item.id;
             display(data.first);
         }
@@ -45,6 +51,11 @@ btns.forEach( item => item.addEventListener( 'click', () => {
     }
 
     else {
+        if (item.classList[1] === 'del') {
+            data.second = data.second.slice(0, data.second.length -1);
+            display(data.second);
+        }
+
         if (item.classList[1] === 'pad') {
             data.second += item.id;
             display(data.second);

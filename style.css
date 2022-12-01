@@ -69,6 +69,6 @@ body {
     background-color: rgb(255, 125, 19);
 }
 
-.other {
+.del,.ac, .other {
     background-color: rgb(174, 174, 255);
 }

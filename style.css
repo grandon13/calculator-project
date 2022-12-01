@@ -72,3 +72,8 @@ body {
 .del,.ac, .other {
     background-color: rgb(174, 174, 255);
 }
+
+.btn img {
+    height: 60px;
+    padding-top: 7px;
+}

@@ -80,7 +80,7 @@ btns.forEach( item => item.addEventListener( 'click', () => {
             data.operator = item.id;
             firstZero = false;
         }
-        else if( data.first.length > 0 && data.first.indexOf('.') < 0 && item.classList[1] === 'dot') {
+        else if( data.first.indexOf('.') < 0 && item.classList[1] === 'dot') {
             data.first += item.id;
             display(data.first);
             firstZero = false;
